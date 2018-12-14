@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Inventory
+{
+    public class Phones : TechEquipment
+    {
+
+        public Phones(int serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
+            double price, string manufacturer, int phoneNumber, string fullName) : base(serialNumber,
+            description, dateOfBuying, warranty, price, manufacturer)
+        {
+            PhoneNumber = phoneNumber;
+            FullName = fullName;
+        }
+
+        public int PhoneNumber { get; set; }
+        public string FullName { get; set; }
+
+        public void WritePhoneProperties()
+        {
+            WriteTechEquipmentProperties();
+            Console.WriteLine($"Phone number: {PhoneNumber}\nOwner's full name: {FullName}\n");
+        }
+
+    }
+}
