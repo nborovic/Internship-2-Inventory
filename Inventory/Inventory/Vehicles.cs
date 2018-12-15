@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inventory
 {
-    public class Vehicles : TechEquipment
+    public class Vehicles : Inventory
     {
 
         public Vehicles(Guid serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
@@ -22,7 +22,7 @@ namespace Inventory
 
         public void WriteVehicleProperties()
         {
-            WriteTechEquipmentProperties();
+            WriteInventoryProperties();
             Console.WriteLine($"Registration expiration date: {RegistrationExpirationDate}\nMileage: {Mileage}\n");
         }
 

@@ -10,8 +10,8 @@ namespace Inventory
     {
 
         public Phones(Guid serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
-            double price, Manufacturer manufacturer, int phoneNumber, string fullName) : base(serialNumber,
-            description, dateOfBuying, warranty, price, manufacturer)
+            double price, Manufacturer manufacturer, int phoneNumber, string fullName, bool hasBattery) : base(serialNumber,
+            description, dateOfBuying, warranty, price, manufacturer, hasBattery)
         {
             PhoneNumber = phoneNumber;
             FullName = fullName;

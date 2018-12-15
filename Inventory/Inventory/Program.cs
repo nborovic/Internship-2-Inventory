@@ -15,12 +15,12 @@ namespace Inventory
             var computerWarrantyExpirationDate = new DateTime(2019, 5, 3);
             var dateOfBuyingComputer = new DateTime(2018, 2, 3, 15, 23, 44);
             var computer = new List<Computers>();
-            computer.Add(new Computers(Guid.NewGuid(), "Great computer.", dateOfBuyingComputer, computerWarrantyExpirationDate, 1673.52, Manufacturer.Dell, "Windows 10", true));
+            computer.Add(new Computers(Guid.NewGuid(), "Great computer.", dateOfBuyingComputer, computerWarrantyExpirationDate, 1673.52, Manufacturer.Dell, "Windows 10", true, true));
 
             var phoneWarrantyExpirationDate = new DateTime(2018, 9, 12);
             var dateOfBuyingPhone = new DateTime(2018, 1, 24, 8, 43, 2);
             var phone = new List<Phones>();
-            phone.Add(new Phones(Guid.NewGuid(), "Great phone.", dateOfBuyingPhone, phoneWarrantyExpirationDate, 364.08, Manufacturer.Xiaomi, 0925555555, "Nino Borovic"));
+            phone.Add(new Phones(Guid.NewGuid(), "Great phone.", dateOfBuyingPhone, phoneWarrantyExpirationDate, 364.08, Manufacturer.Xiaomi, 0925555555, "Nino Borovic", true));
 
             var vehicleWarrantyExpirationDate = new DateTime(2022, 5, 7);
             var dateOfBuyingVehicle = new DateTime(2017, 11, 15, 20, 3, 22);
@@ -44,6 +44,10 @@ namespace Inventory
                     Console.Write("Insert warranty expiration year: ");
                     var inputedExpirationYear = int.Parse(Console.ReadLine());
                     SearchByWarrantyExpirationYear(computer, inputedExpirationYear);
+                    break;
+
+                case "3":
+
                     break;
 
                 default:
@@ -121,5 +125,7 @@ namespace Inventory
                 }
             }
         }
+
+
     }
 }
