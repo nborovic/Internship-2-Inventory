@@ -9,8 +9,8 @@ namespace Inventory
     public class Vehicles : TechEquipment
     {
 
-        public Vehicles(int serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
-            double price, string manufacturer, DateTime registrationExpirationDate, double mileage) : base(serialNumber,
+        public Vehicles(Guid serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
+            double price, Manufacturer manufacturer, DateTime registrationExpirationDate, double mileage) : base(serialNumber,
             description, dateOfBuying, warranty, price, manufacturer)
         {
             RegistrationExpirationDate = registrationExpirationDate;

@@ -9,8 +9,8 @@ namespace Inventory
     public class Phones : TechEquipment
     {
 
-        public Phones(int serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
-            double price, string manufacturer, int phoneNumber, string fullName) : base(serialNumber,
+        public Phones(Guid serialNumber, string description, DateTime dateOfBuying, DateTime warranty,
+            double price, Manufacturer manufacturer, int phoneNumber, string fullName) : base(serialNumber,
             description, dateOfBuying, warranty, price, manufacturer)
         {
             PhoneNumber = phoneNumber;

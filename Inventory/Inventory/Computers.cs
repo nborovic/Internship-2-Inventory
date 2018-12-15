@@ -9,8 +9,8 @@ namespace Inventory
     public class Computers : TechEquipment 
     {
 
-        public Computers(int serialNumber, string description, DateTime dateOfBuying, DateTime warranty, 
-            double price, string manufacturer, string operatingSystem, bool ifPortable) : base(serialNumber,
+        public Computers(Guid serialNumber, string description, DateTime dateOfBuying, DateTime warranty, 
+            double price, Manufacturer manufacturer, string operatingSystem, bool ifPortable) : base(serialNumber,
             description, dateOfBuying, warranty, price, manufacturer)
         {
             OperatingSystem = operatingSystem;
