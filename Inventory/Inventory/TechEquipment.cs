@@ -22,7 +22,7 @@ namespace Inventory
         {
             var currentPrice = GetCurrentPrice();
             WriteInventoryProperties();
-            Console.WriteLine($"Retail price: {Price}\nCurrent price: {currentPrice}\nHas battery: {HasBattery}");
+            Console.WriteLine($"Retail price: {Price}$\nCurrent price: {currentPrice}$\nHas battery: {HasBattery}");
         }
 
         private double GetCurrentPrice()
