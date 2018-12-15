@@ -30,7 +30,7 @@ namespace Inventory
 
         public void WriteTechEquipmentProperties()
         {
-            Console.WriteLine( $"Serial number: {SerialNumber}\nDescription: {Description}\nDate of buying: {DateOfBuying}\n" +
+            Console.WriteLine( $"\nSerial number: {SerialNumber}\nDescription: {Description}\nDate of buying: {DateOfBuying}\n" +
                 $"Warranty in months: {WarrantyInMonths.Days / 30} months\nPrice: {Price}$\nManufacturer: {Manufacturer}");
         }
 

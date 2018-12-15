@@ -28,15 +28,51 @@ namespace Inventory
             var vehicle = new List<Vehicles>();
             vehicle.Add(new Vehicles(Guid.NewGuid(), "Great vehicle.", dateOfBuyingVehicle, vehicleWarrantyExpirationDate, 22576, Manufacturer.Toyota, registrationExpirationDate, 23000));
 
-            
+            var option = WriteMenu();
+
+            switch(option)
+            {
+                case "1":
+
+                    Console.Write("Insert serial number: ");
+                    var serialNumber = Console.ReadLine();
+                    WriteBySerialNumber(vehicle, computer, phone, serialNumber);
+                    break;
+
+                case "2":
+
+                    Console.Write("Insert warranty expiration year: ");
+                    var inputedExpirationYear = int.Parse(Console.ReadLine());
+                    SearchByWarrantyExpirationYear(computer, inputedExpirationYear);
+                    break;
+
+                default:
+                    Console.WriteLine("Incorrect input!");
+                    break;
+            }
+
+        }
+
+        static string WriteMenu()
+        {
+            Console.WriteLine("\n--------------------------------\n");
+            Console.WriteLine("1) Search by serial number");
+            Console.WriteLine("2) Search by warranty expiration year");
+            Console.Write("\nInsert an option: ");
+            var option = Console.ReadLine();
+            Console.WriteLine("\n--------------------------------\n");
+
+            return option;
+        }
+
+        static void WriteObjects(List<Computers> computer, List<Phones> phone, List<Vehicles> vehicle)
+        {
             Console.WriteLine("Computer\n-----------");
             computer[0].WriteComputerProperties();
             Console.WriteLine("Phone\n-----------");
             phone[0].WritePhoneProperties();
             Console.WriteLine("Vehicle\n-----------");
             vehicle[0].WriteVehicleProperties();
-
-            WriteBySerialNumber(vehicle, computer, phone, "");
         }
 
         static void WriteBySerialNumber(List<Vehicles> vehicles, List<Computers> computers, List<Phones> phones, string serialNumber)
@@ -72,6 +108,18 @@ namespace Inventory
 
             if (counter == 0)
                 Console.WriteLine("Nothing found!");
+        }
+
+        static void SearchByWarrantyExpirationYear(List<Computers> computers, int inputedExpirationYear)
+        {
+            foreach (Computers computer in computers)
+            {
+                var expirationYear = DateTime.Now + computer.WarrantyInMonths;
+                if (inputedExpirationYear == expirationYear.Year)
+                {
+                    computer.WriteComputerProperties();
+                }
+            }
         }
     }
 }
