@@ -71,6 +71,14 @@ namespace Inventory
                         SearchByOperatingSystem(computer, operatingSystem);
                         break;
 
+                    case "6":
+
+                        Console.Write("Insert phone warranty expiration year: ");
+                        var phoneWarrantyExpirationYear = int.Parse(Console.ReadLine());
+                        SearchPhoneUsersByWarranty(phone, phoneWarrantyExpirationYear);
+
+                        break;
+
                     case "stop":
 
                         break;
@@ -92,6 +100,7 @@ namespace Inventory
             Console.WriteLine("3) Get number of items from tech equipment that have batteries");
             Console.WriteLine("4) Search by phone manufacturer");
             Console.WriteLine("5) Search by computer operating system");
+            Console.WriteLine("6) Search by phone warranty expiration year");
             Console.Write("\nInsert an option: ");
             var option = Console.ReadLine();
             Console.WriteLine("\n--------------------------------\n");
@@ -215,6 +224,24 @@ namespace Inventory
                 if (computer.OperatingSystem.ToString().ToLower() == operatingSystem.ToLower())
                 {
                     computer.WriteComputerProperties();
+                    counter++;
+                }
+            }
+
+            if (counter == 0)
+                Console.WriteLine("Nothing found!");
+        }
+
+        static void SearchPhoneUsersByWarranty(List<Phones> phones, int inputedWarrantyExpiration)
+        {
+            var counter = 0;
+
+            foreach(Phones phone in phones)
+            {
+                var warrantyExpiration = DateTime.Now + phone.WarrantyInMonths;
+                if (inputedWarrantyExpiration == warrantyExpiration.Year)
+                {
+                    Console.WriteLine($"\nOwner's full name: {phone.FullName}\nPhone number: {phone.PhoneNumber}\n");
                     counter++;
                 }
             }
