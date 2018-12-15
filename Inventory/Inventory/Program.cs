@@ -22,7 +22,7 @@ namespace Inventory
             var phone = new List<Phones>();
             phone.Add(new Phones(Guid.NewGuid(), "Great phone.", dateOfBuyingPhone, phoneWarrantyExpirationDate, 364.08, Manufacturer.Xiaomi, 0925555555, "Nino Borovic", false));
 
-            var vehicleWarrantyExpirationDate = new DateTime(2022, 5, 7);
+            var vehicleWarrantyExpirationDate = new DateTime(2019, 1, 16);
             var dateOfBuyingVehicle = new DateTime(2017, 11, 15, 20, 3, 22);
             var registrationExpirationDate = new DateTime(2022, 4, 2, 0, 0, 0);
             var vehicle = new List<Vehicles>();
@@ -76,7 +76,11 @@ namespace Inventory
                         Console.Write("Insert phone warranty expiration year: ");
                         var phoneWarrantyExpirationYear = int.Parse(Console.ReadLine());
                         SearchPhoneUsersByWarranty(phone, phoneWarrantyExpirationYear);
+                        break;
 
+                    case "7":
+
+                        SearchVehiclesWithOneMonthWarranty(vehicle);
                         break;
 
                     case "stop":
@@ -98,9 +102,10 @@ namespace Inventory
             Console.WriteLine("1) Search by serial number");
             Console.WriteLine("2) Search by warranty expiration year");
             Console.WriteLine("3) Get number of items from tech equipment that have batteries");
-            Console.WriteLine("4) Search by phone manufacturer");
-            Console.WriteLine("5) Search by computer operating system");
-            Console.WriteLine("6) Search by phone warranty expiration year");
+            Console.WriteLine("4) Search phones by manufacturer");
+            Console.WriteLine("5) Search computers by operating system");
+            Console.WriteLine("6) Search phone users by warranty expiration year");
+            Console.WriteLine("7) Search vehicles by warranty of one month");
             Console.Write("\nInsert an option: ");
             var option = Console.ReadLine();
             Console.WriteLine("\n--------------------------------\n");
@@ -242,6 +247,23 @@ namespace Inventory
                 if (inputedWarrantyExpiration == warrantyExpiration.Year)
                 {
                     Console.WriteLine($"\nOwner's full name: {phone.FullName}\nPhone number: {phone.PhoneNumber}\n");
+                    counter++;
+                }
+            }
+
+            if (counter == 0)
+                Console.WriteLine("Nothing found!");
+        }
+        
+        static void SearchVehiclesWithOneMonthWarranty(List<Vehicles> vehicles)
+        {
+            var counter = 0;
+
+            foreach (Vehicles vehicle in vehicles)
+            {
+                if ((vehicle.WarrantyInMonths.Days / 30) == 1)
+                {
+                    vehicle.WriteVehicleProperties();
                     counter++;
                 }
             }
