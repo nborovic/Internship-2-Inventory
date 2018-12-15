@@ -122,6 +122,7 @@ namespace Inventory
             Console.WriteLine("6) Search phone users by warranty expiration year");
             Console.WriteLine("7) Search vehicles by warranty of one month");
             Console.WriteLine("8) Add new item");
+            Console.WriteLine("9) Remove item");
             Console.Write("\nInsert an option: ");
             var option = Console.ReadLine();
             Console.WriteLine("\n--------------------------------\n");
