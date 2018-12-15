@@ -22,8 +22,23 @@ namespace Inventory
 
         public void WriteVehicleProperties()
         {
+            var currentPrice = GetCurrentPrice();
             WriteInventoryProperties();
-            Console.WriteLine($"Registration expiration date: {RegistrationExpirationDate}\nMileage: {Mileage}\n");
+            Console.WriteLine($"Retail price: {Price}$\nCurrent price: {currentPrice}$\nRegistration expiration date: {RegistrationExpirationDate}\nMileage: {Mileage}\n");
+        }
+
+        private double GetCurrentPrice()
+        {
+            var currentPrice = Price;
+            var tempMileage = Mileage;
+
+            while(currentPrice != (Price - Price * 0.2) && tempMileage > 20000)
+            {
+                currentPrice = ((currentPrice - currentPrice * 0.1) < (Price - Price * 0.2)) ? Price - Price * 0.2 : currentPrice - currentPrice * 0.1;
+                tempMileage -= 20000;
+            }
+
+            return currentPrice;
         }
 
     }

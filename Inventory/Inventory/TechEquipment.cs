@@ -20,8 +20,23 @@ namespace Inventory
 
         public void WriteTechEquipmentProperties()
         {
+            var currentPrice = GetCurrentPrice();
             WriteInventoryProperties();
-            Console.WriteLine($"Has battery: {HasBattery}");
+            Console.WriteLine($"Retail price: {Price}\nCurrent price: {currentPrice}\nHas battery: {HasBattery}");
+        }
+
+        private double GetCurrentPrice()
+        {
+            var tempWarrantyInMonths = WarrantyInMonths.Days / 30;
+            var currentPrice = (tempWarrantyInMonths < 0) ? Price - Price * 0.3 : Price;
+
+            while (currentPrice != (Price - Price * 0.3) && tempWarrantyInMonths > 0)
+            {
+                currentPrice = ((currentPrice - currentPrice * 0.05) < (Price - Price * 0.3)) ? Price - Price * 0.3 : currentPrice - currentPrice * 0.05;
+                tempWarrantyInMonths -= 1;
+            }
+
+            return currentPrice;
         }
 
     }

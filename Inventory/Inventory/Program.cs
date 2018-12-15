@@ -22,11 +22,11 @@ namespace Inventory
             var phone = new List<Phones>();
             phone.Add(new Phones(Guid.NewGuid(), "Great phone.", dateOfBuyingPhone, phoneWarrantyExpirationDate, 364.08, Manufacturer.Xiaomi, 0925555555, "Nino Borovic", false));
 
-            var vehicleWarrantyExpirationDate = new DateTime(2019, 1, 16);
+            var vehicleWarrantyExpirationDate = new DateTime(2022, 1, 16);
             var dateOfBuyingVehicle = new DateTime(2017, 11, 15, 20, 3, 22);
-            var registrationExpirationDate = new DateTime(2022, 4, 2, 0, 0, 0);
+            var registrationExpirationDate = new DateTime(2019, 1, 16, 0, 0, 0);
             var vehicle = new List<Vehicles>();
-            vehicle.Add(new Vehicles(Guid.NewGuid(), "Great vehicle.", dateOfBuyingVehicle, vehicleWarrantyExpirationDate, 22576, Manufacturer.Toyota, registrationExpirationDate, 23000));
+            vehicle.Add(new Vehicles(Guid.NewGuid(), "Great vehicle.", dateOfBuyingVehicle, vehicleWarrantyExpirationDate, 22576, Manufacturer.Toyota, registrationExpirationDate, 21000));
 
             var option = "";
 
@@ -49,7 +49,7 @@ namespace Inventory
 
                         Console.Write("Insert warranty expiration year: ");
                         var inputedExpirationYear = int.Parse(Console.ReadLine());
-                        SearchByWarrantyExpirationYear(computer, inputedExpirationYear);
+                        SearchByWarrantyExpirationYear(computer, phone, vehicle, inputedExpirationYear);
                         break;
 
                     case "3":
@@ -158,7 +158,7 @@ namespace Inventory
                 Console.WriteLine("Nothing found!");
         }
 
-        static void SearchByWarrantyExpirationYear(List<Computers> computers, int inputedExpirationYear)
+        static void SearchByWarrantyExpirationYear(List<Computers> computers, List<Phones> phones, List<Vehicles> vehicles, int inputedExpirationYear)
         {
 
             var counter = 0;
@@ -169,6 +169,26 @@ namespace Inventory
                 if (inputedExpirationYear == expirationYear.Year)
                 {
                     computer.WriteComputerProperties();
+                    counter++;
+                }
+            }
+
+            foreach (Phones phone in phones)
+            {
+                var expirationYear = DateTime.Now + phone.WarrantyInMonths;
+                if (inputedExpirationYear == expirationYear.Year)
+                {
+                    phone.WritePhoneProperties();
+                    counter++;
+                }
+            }
+
+            foreach (Vehicles vehicle in vehicles)
+            {
+                var expirationYear = DateTime.Now + vehicle.WarrantyInMonths;
+                if (inputedExpirationYear == expirationYear.Year)
+                {
+                    vehicle.WriteVehicleProperties();
                     counter++;
                 }
             }
@@ -261,7 +281,9 @@ namespace Inventory
 
             foreach (Vehicles vehicle in vehicles)
             {
-                if ((vehicle.WarrantyInMonths.Days / 30) == 1)
+                var registrationExpiration = vehicle.RegistrationExpirationDate - DateTime.Now;
+
+                if ((registrationExpiration.Days / 30) == 1)
                 {
                     vehicle.WriteVehicleProperties();
                     counter++;
