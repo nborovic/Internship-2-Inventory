@@ -1,0 +1,13 @@
+C:\Users\Nino Borović\Desktop\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\bin\Debug\Inventory.exe.config
+C:\Users\Nino Borović\Desktop\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\bin\Debug\Inventory.exe
+C:\Users\Nino Borović\Desktop\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\bin\Debug\Inventory.pdb
+C:\Users\Nino Borović\Desktop\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.csprojResolveAssemblyReference.cache
+C:\Users\Nino Borović\Desktop\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.exe
+C:\Users\Nino Borović\Desktop\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.pdb
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.csprojAssemblyReference.cache
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.csproj.CoreCompileInputs.cache
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.exe
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\obj\Debug\Inventory.pdb
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\bin\Debug\Inventory.exe.config
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\bin\Debug\Inventory.exe
+E:\Nino\DUMP - Internship\Programiranje\Domaci\Internship-2-Inventory\Inventory\Inventory\bin\Debug\Inventory.pdb
